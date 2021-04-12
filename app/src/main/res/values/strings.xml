@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">GajDaDeuLim</string>
+    <string name="IDTitleView">아이디 : </string>
+    <string name="PWTitleView">비밀번호 : </string>
+    <string name="IDEditText">아이디를 입력하세요.</string>
+    <string name="PWEditText">비밀번호를 입력하세요.</string>
+    <string name="LoginConfirmBtn">로그인</string>
+    <string name="MoveMembershipBtn">회원가입</string>
+    <string name="NameTitleView">이름</string>
+    <string name="IdTitleView">아이디</string>
+    <string name="PwTitleView">비밀번호</string>
+    <string name="PwConfirmTitleView">비밀번호확인</string>
+    <string name="StudentIDTitleView">학번</string>
+    <string name="GenderTitleView">성별</string>
+    <string name="MajorTitleView">전공</string>
+    <string name="NameMemberText">이름을 입력하세요.</string>
+    <string name="IDMemberText">아이디를 입력하세요.</string>
+    <string name="PWMemberText">비밀번호를 입력하세요.</string>
+    <string name="PWConfirmMemberText">비밀번호를 한번 더 입력하세요.</string>
+    <string name="StudentMemberText">학번을 입력하세요.</string>
+    <string name="GenderMemberText">성별을 입력하세요.</string>
+    <string name="MajorMemberText">전공을 입력하세요.</string>
+    <string name="OverlapConfirmBtn">중복확인</string>
+    <string name="StudentIDAuthenticateBtn">인증하기</string>
+    <string name="MoveLoginBtn">로그인 창</string>
+    <string name="FinishMemberShipBtn">회원가입하기</string>
+    <string name="StudentIDAuthenticateTitle">인증코드</string>
+    <string name="StudentIDConfirmBtn">코드확인</string>errandContent
+    <string name="EmailAuthenticateEditText">인증코드를 입력하세요.</string>
+    <string name="errandContent">물건</string>
+    <string name="errandTime">시간</string>
+    <string name="errandPrice">가격</string>
+    <string name="errandName">이름</string>
+    <string name="mainToolbar">갖다드림</string>
+    <string name="defaultToolbar">갖다드림</string>
+</resources>

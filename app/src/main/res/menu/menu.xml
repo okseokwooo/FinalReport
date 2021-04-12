@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/timeSort"
+        android:icon="@drawable/time"
+        app:showAsAction="ifRoom"
+        android:title="시간순 배열" />
+
+    <item
+        android:id="@+id/priceSort"
+        android:icon="@drawable/price"
+        app:showAsAction="ifRoom"
+        android:title="가격순 배열" />
+
+    <item
+        android:id="@+id/logout"
+        app:showAsAction="never"
+        android:title="로그아웃" />
+
+    <item
+        android:id="@+id/modify"
+        app:showAsAction="never"
+        android:title="계정관리" />
+
+    <item
+        android:id="@+id/Systheme"
+        app:showAsAction="never"
+        android:title="테마변경" />
+
+
+    <!--
+    to 준혁
+    여기에
+    <item
+        .
+        .
+        app:showAsAction="never" />
+        타입의 아이템들을 바탕으로 기능들 만들고,
+        MainActivity에 onOptionsItemSelected()에서 기능을 처리하면됩니다.
+        추가로 버튼이 네모박스말고도 다른걸로도 바꿀수 있으니까 구글링해보세요.
+    -->
+</menu>

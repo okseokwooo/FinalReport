@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "352151854350",
+    "project_id": "gajdadeulim",
+    "storage_bucket": "gajdadeulim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352151854350:android:5a8d2e7387d653b54ccb5f",
+        "android_client_info": {
+          "package_name": "com.example.gajdadeulim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352151854350-013sgllkds4lk0d9nq2ie61ja5f2tsta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCayv9_qYMEGWdVE1kwQaaHZ8iUrFTT_Ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352151854350-013sgllkds4lk0d9nq2ie61ja5f2tsta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/OrderToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="갖다드림"
+        android:textSize="30dp"
+        />
+    <EditText
+        android:id="@+id/writeorder_title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="제목을 입력하세요"/>
+    <EditText
+        android:id="@+id/order_adress"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="주소를 입력하세요"/>
+    <Button
+        android:id="@+id/order_btn_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현위치"
+        />
+    <EditText
+        android:id="@+id/writeorder_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:hint="심부름 내용을 입력하세요"/>
+
+</LinearLayout>
