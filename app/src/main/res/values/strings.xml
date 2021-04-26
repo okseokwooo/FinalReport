@@ -33,4 +33,25 @@
     <string name="errandName">이름</string>
     <string name="mainToolbar">갖다드림</string>
     <string name="defaultToolbar">갖다드림</string>
+    <string name="BorderTitle">제목</string>
+    <string name="BorderTitleHint">게시글의 제목을 입력해주세요.</string>
+    <string name="BorderAddress">상세주소</string>
+    <string name="BorderAddressHint">상세주소를 입력해주세요.</string>
+    <string name="BorderPrice">가격</string>
+    <string name="BorderPriceHint">금액을 입력</string>
+    <string name="BorderText">내용</string>
+    <string name="BorderTextHint">게시글의 내용을 입력해주세요.</string>
+    <string name="mainBoardFragButton">메인게시판</string>
+    <string name="MenuListFragButton">주문목록</string>
+    <string name="ChattingFragButton">채팅방</string>
+    <string name="myInfoFragButton">내정보</string>
+    <string name="errandTitle">제목</string>
+    <string name="main_go_btn">메인으로가기</string>
+    <string name="CustomCareTextView">안녕하세요 갖다드림 고객센터 입니다.</string>
+    <string name="CustomCareTextView2">신고 하실 내용을 상세히 적어주세요.</string>
+    <string name="CustomCarecb_1">언어폭력</string>
+    <string name="CustomCarecb_2">재화 문제</string>
+    <string name="CustomCarecb_3">회원 탈퇴</string>
+    <string name="CustomCarecb_4">서비스 개선 문의</string>
+    <string name="CustomCarecb_5">기타</string>
 </resources>

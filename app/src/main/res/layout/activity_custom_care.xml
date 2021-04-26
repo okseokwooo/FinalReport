@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomCareActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/CustomCareToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CustomCareTextView"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CustomCareTextView2"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"/>
+
+        <CheckBox
+            android:id="@+id/customcarecb_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CustomCarecb_1" />
+
+        <CheckBox
+            android:id="@+id/customcarecb_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CustomCarecb_2" />
+
+       <CheckBox
+            android:id="@+id/customcarecb_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CustomCarecb_3" />
+
+        <CheckBox
+            android:id="@+id/customcarecb_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CustomCarecb_4" />
+
+        <CheckBox
+            android:id="@+id/customcarecb_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CustomCarecb_5" />
+
+
+        <EditText
+            android:id="@+id/CustomCareContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:ems="10"
+            android:hint="@string/CustomCareTextView2"
+            android:inputType="textPersonName"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ModifyActivity" />
+        <activity android:name=".CustomCareActivity"></activity>
+        <activity android:name=".GuideActivity" />
+        <activity android:name=".NotifyActivity" />
+        <activity android:name=".InsertBoardActivity" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".AddressActivity" />
         <activity android:name=".MembershipActivity" />
@@ -34,20 +37,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDaa77tStKClIM_RBzgwDXsku5RwzqFyj4" />
-        <!--
- Set custom default icon. This is used when no icon is set for incoming notification messages.
-     See README(https://goo.gl/l4GJaQ) for more.
-        -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/notify" />
-        <!--
- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more.
-        -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" />
     </application>
 
 </manifest>

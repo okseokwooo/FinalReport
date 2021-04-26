@@ -1,65 +1,66 @@
 package com.example.gajdadeulim;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
-public class ModifyActivity extends AppCompatActivity implements View.OnClickListener {
+public class MyInfo_Fragment extends Fragment implements View.OnClickListener {
 
     public Toolbar modifytoolbar;
 
     EditText ModifyPWText;
     EditText ModifyPWConfirmText;
-
     TextView ModifyIDText,ModifyNameText,ModifyMajorText,ModifyS_NumText,ModifyGenderText;
-
     String userID;
-
     Button ModifyButton;
+    public View view;
+    public MyInfo_Fragment(){
 
+    }
 
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_modify);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        userID = getIntent().getStringExtra("userID");
+        view = inflater.inflate(R.layout.myinfo_fragment, container, false);
 
-        modifytoolbar = findViewById(R.id.ModifyToolbar);
+        modifytoolbar = view.findViewById(R.id.ModifyToolbar);
         modifytoolbar.setTitle(R.string.defaultToolbar);
-        setSupportActionBar(modifytoolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(modifytoolbar);
 
-        ModifyPWText = findViewById(R.id.ModifyPWText);
-        ModifyPWConfirmText = findViewById(R.id.ModifyPWConfirmText);
-        ModifyButton = findViewById(R.id.ModifyButton);
+        ModifyPWText = view.findViewById(R.id.ModifyPWText);
+        ModifyPWConfirmText = view.findViewById(R.id.ModifyPWConfirmText);
+        ModifyButton = view.findViewById(R.id.ModifyButton);
 
-        ModifyIDText = findViewById(R.id.ModifyIDText);
-        ModifyNameText = findViewById(R.id.ModifyNameText);
-        ModifyMajorText = findViewById(R.id.ModifyMajorText);
-        ModifyS_NumText = findViewById(R.id.ModifyS_NumText);
-        ModifyGenderText = findViewById(R.id.ModifyGenderText);
+        ModifyIDText = view.findViewById(R.id.ModifyIDText);
+        ModifyNameText = view.findViewById(R.id.ModifyNameText);
+        ModifyMajorText = view.findViewById(R.id.ModifyMajorText);
+        ModifyS_NumText = view.findViewById(R.id.ModifyS_NumText);
+        ModifyGenderText = view.findViewById(R.id.ModifyGenderText);
         ModifyButton.setOnClickListener(this);
 
 
         ContentValues values = new ContentValues();
-        values.put("AccessInfoByID", userID);
+        values.put("AccessInfoByID", MainActivity.userID);
 
         String response = "";
         NetworkTask networkTask = new NetworkTask(resulturl("ShowUserInfoServlet"), values);
@@ -81,8 +82,7 @@ public class ModifyActivity extends AppCompatActivity implements View.OnClickLis
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
+        return view;
     }
 
     @Override
@@ -92,34 +92,34 @@ public class ModifyActivity extends AppCompatActivity implements View.OnClickLis
                 if(!ModifyPWText.getText().toString().equals(ModifyPWConfirmText.getText().toString()) || ModifyPWText.getText().equals("")) {
                     ModifyPWText.setText("");
                     ModifyPWConfirmText.setText("");
-                    Toast.makeText(getApplicationContext(),"비밀번호가 없거나 같지않습니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"비밀번호가 없거나 같지않습니다.",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     if(ModifyPWText.getText().toString().equals("")){
-                        Toast.makeText(getApplicationContext(),"비밀번호를 입력해주세요.",Toast.LENGTH_SHORT).show();;
+                        Toast.makeText(getContext(),"비밀번호를 입력해주세요.",Toast.LENGTH_SHORT).show();;
                         ModifyPWText.requestFocus();
                     }
                     else if(ModifyPWConfirmText.getText().toString().equals("")){
-                        Toast.makeText(getApplicationContext(),"비밀번호확인을 입력해주세요.",Toast.LENGTH_SHORT).show();;
+                        Toast.makeText(getContext(),"비밀번호확인을 입력해주세요.",Toast.LENGTH_SHORT).show();;
                         ModifyPWConfirmText.requestFocus();
                     }
                     else{
                         ContentValues values = new ContentValues();
-                        values.put("IdentificationID", userID);
+                        values.put("IdentificationID", MainActivity.userID);
                         values.put("AfterPass", SignatureUtil.applySHA256(ModifyPWText.getText().toString()));
                         NetworkTask networkTask = new NetworkTask(resulturl("ChangePWServlet"), values);
                         networkTask.execute();
-                        Intent intent = new Intent(ModifyActivity.this , LoginActivity.class);
+                        Intent intent = new Intent(this.getActivity() , LoginActivity.class);
                         startActivity(intent);
-                        Toast.makeText(getApplicationContext(),"변경된 비밀번호로 다시 로그인 해주세요",Toast.LENGTH_SHORT).show();;}
+                        Toast.makeText(getContext(),"변경된 비밀번호로 다시 로그인 해주세요",Toast.LENGTH_SHORT).show();}
+                }
             }
-        }
             default:{
                 break;
             }
 
+        }
     }
-}
     public String resulturl(String url) { //ip 값 바꿔주는 부분 이거있어야 서버 쌉가능
         String resultUrl = "http://10.0.2.2:8080/" + url;
         return resultUrl;

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/waiting"
+        android:icon="@drawable/waiting"
+        app:showAsAction="always"
+        android:title="주문 대기" />
+
+    <item
+        android:id="@+id/ongoing"
+        android:icon="@drawable/ongoing"
+        app:showAsAction="always"
+        android:title="주문 진행" />
+
+    <item
+        android:id="@+id/completed"
+        android:icon="@drawable/completed"
+        app:showAsAction="always"
+        android:title="주문 완료" />
+
+    <item
+        android:id="@+id/logout"
+        app:showAsAction="never"
+        android:title="로그아웃" />
+
+    <item
+        android:id="@+id/Systheme"
+        app:showAsAction="never"
+        android:title="테마변경" />
+
+</menu>

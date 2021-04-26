@@ -11,6 +11,7 @@ public class Board_Module {
     private String detail_address = "";
     private int price = 0;
     private String o_time = "";
+    private String progress ="";
 
     public int getO_number() {
         return o_number;
@@ -72,4 +73,6 @@ public class Board_Module {
     public void setO_time(String o_time) {
         this.o_time = o_time;
     }
+    public String getProgress() {return progress; }
+    public void setProgress(String progess) {this.progress = progess; }
 }

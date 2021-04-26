@@ -6,13 +6,19 @@ public class MainData {
     private String errandTime;
     private String errandContent;
     private String errandPrice;
+    private String errandProgress;
+    private String errandTitle;
+    private int o_Number;
 
-    public MainData(int iv_profile, String errandName, String errandTime, String errandContent, String errandPrice) {
+    public MainData(int iv_profile, String errandName, String errandTime, String errandContent, String errandPrice, String errandProgress, String errandTitle, int o_Number) {
+        this.errandTitle = errandTitle;
         this.iv_profile = iv_profile;
         this.errandName = errandName;
         this.errandTime = errandTime;
         this.errandContent = errandContent;
         this.errandPrice = errandPrice;
+        this.errandProgress = errandProgress;
+        this.o_Number = o_Number;
     }
 
     public int getIv_profile() {
@@ -54,4 +60,17 @@ public class MainData {
     public void setErrandPrice(String errandPrice) {
         this.errandPrice = errandPrice;
     }
+
+    public String getErrandProgress() { return errandProgress; }
+
+    public void setErrandProgress(String errandProgress) { this.errandProgress = errandProgress;
+    }
+
+    public String getErrandTitle() { return errandTitle; }
+
+    public void setErrandTitle(String errandTitle) { this.errandTitle = errandTitle; }
+
+    public int getO_Number() { return o_Number; }
+
+    public void setO_Number(int o_Number) { this.o_Number = o_Number; }
 }
