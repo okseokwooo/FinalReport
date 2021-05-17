@@ -2,7 +2,8 @@ package com.example.gajdadeulim;
 
 public class MainData {
     private int iv_profile;
-    private String errandName;
+    private String orderID;
+    private String errandID;
     private String errandTime;
     private String errandContent;
     private String errandPrice;
@@ -10,10 +11,11 @@ public class MainData {
     private String errandTitle;
     private int o_Number;
 
-    public MainData(int iv_profile, String errandName, String errandTime, String errandContent, String errandPrice, String errandProgress, String errandTitle, int o_Number) {
+    public MainData(int iv_profile, String orderID ,String errandID, String errandTime, String errandContent, String errandPrice, String errandProgress, String errandTitle, int o_Number) {
         this.errandTitle = errandTitle;
         this.iv_profile = iv_profile;
-        this.errandName = errandName;
+        this.errandID = errandID;
+        this.orderID = orderID;
         this.errandTime = errandTime;
         this.errandContent = errandContent;
         this.errandPrice = errandPrice;
@@ -29,12 +31,20 @@ public class MainData {
         this.iv_profile = iv_profile;
     }
 
-    public String getErrandName() {
-        return errandName;
+    public String getOrderID() {
+        return orderID;
     }
 
-    public void setErrandName(String errandName) {
-        this.errandName = errandName;
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
+    public String getErrandID() {
+        return errandID;
+    }
+
+    public void setErrandID(String errandID) {
+        this.errandID = errandID;
     }
 
     public String getErrandTime() {

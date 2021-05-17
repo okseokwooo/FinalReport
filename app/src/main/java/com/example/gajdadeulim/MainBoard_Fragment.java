@@ -40,15 +40,12 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class MainBoard_Fragment extends Fragment {
 
-
-
     public Button BoardInBtn;
     public View view;
     public Toolbar mainToolbar;
     public ArrayList<Board_Module> boardsArray = new ArrayList<Board_Module>();;
     public Board_Module boards;
     public String[] JsonList = new String[50];;
-
 
     private ArrayList<MainData> dataList;
     private MainAdapter mainAdapter;
@@ -77,7 +74,7 @@ public class MainBoard_Fragment extends Fragment {
         recyclerView.setAdapter(mainAdapter);
         getBoard();
         for(int i=dataList.size()-1;i>=0;i--){
-            if(!dataList.get(i).getErrandProgress().equals("@@Waiting")){
+            if(!dataList.get(i).getErrandProgress().equals("@@Waiting") || dataList.get(i).getOrderID().equals(MainActivity.userID)){
                 dataList.remove(i);
             }
         }
@@ -89,7 +86,7 @@ public class MainBoard_Fragment extends Fragment {
                 dataList.clear();
                 getBoard();
                 for(int i=dataList.size()-1;i>=0;i--){
-                    if(!dataList.get(i).getErrandProgress().equals("@@Waiting")){
+                    if(!dataList.get(i).getErrandProgress().equals("@@Waiting")|| dataList.get(i).getOrderID().equals(MainActivity.userID)){
                         dataList.remove(i);
                     }
                 }
@@ -127,6 +124,11 @@ public class MainBoard_Fragment extends Fragment {
             case R.id.timeSort:{
                 dataList.clear();
                 getBoard();
+                for(int i=dataList.size()-1;i>=0;i--){
+                    if(!dataList.get(i).getErrandProgress().equals("@@Waiting") || dataList.get(i).getOrderID().equals(MainActivity.userID)){
+                        dataList.remove(i);
+                    }
+                }
                 for(int i=0;i<dataList.size();i++){
                     for(int j=0;j<dataList.size();j++){
                         if(Integer.parseInt(dataList.get(i).getErrandTime()) > Integer.parseInt(dataList.get(j).getErrandTime())){
@@ -141,6 +143,11 @@ public class MainBoard_Fragment extends Fragment {
             case R.id.priceSort: {
                 dataList.clear();
                 getBoard();
+                for(int i=dataList.size()-1;i>=0;i--){
+                    if(!dataList.get(i).getErrandProgress().equals("@@Waiting") || dataList.get(i).getOrderID().equals(MainActivity.userID)){
+                        dataList.remove(i);
+                    }
+                }
                 for(int i=0;i<dataList.size();i++){
                     for(int j=0;j<dataList.size();j++){
                         if(Integer.parseInt(dataList.get(i).getErrandPrice().replace("원","")) > Integer.parseInt(dataList.get(j).getErrandPrice().replace("원",""))){
@@ -155,53 +162,6 @@ public class MainBoard_Fragment extends Fragment {
             case R.id.logout: {
                 Intent intent = new Intent(this.getActivity() , LoginActivity.class);
                 startActivity(intent);
-                return true;
-            }
-            case R.id.Systheme: {
-                SharedPreferences sharedPreferences= this.getActivity().getSharedPreferences("systheme", MODE_PRIVATE);    // test 이름의 기본모드 설정
-                final SharedPreferences.Editor editor= sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
-
-                final int[] selectedItem = {0};
-                final String[] items = new String[]{"다크모드","라이트모드","시스템 설정값"};
-                AlertDialog.Builder dialog = new AlertDialog.Builder(this.getActivity());
-                dialog.setTitle("테마선택")
-                        .setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                selectedItem[0] = which;
-                            }
-                        })
-                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if(selectedItem[0] == 0){
-                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                                    Toast.makeText(getContext(), "어두운테마 적용됨", Toast.LENGTH_LONG).show();
-                                    editor.putString("theme","dark");
-                                    editor.commit();
-                                }
-                                else if(selectedItem[0] == 1) {
-                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                                    Toast.makeText(getContext(), "밝은테마 적용됨", Toast.LENGTH_LONG).show();
-                                    editor.putString("theme","light");
-                                    editor.commit();
-                                }
-                                else{
-                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                                    Toast.makeText(getContext(), "시스템설정값 적용됨", Toast.LENGTH_LONG).show();
-                                    editor.putString("theme","system");
-                                    editor.commit();
-                                }
-                            }
-                        })
-                        .setNeutralButton("취소", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getContext(), "취소 버튼을 눌렀습니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                dialog.create();
-                dialog.show();
                 return true;
             }
             case R.id.Notify : {
@@ -277,11 +237,17 @@ public class MainBoard_Fragment extends Fragment {
                 boards.setPrice(jsonObject.getInt("price"));
                 boards.setO_time(jsonObject.getString("o_time").substring(8));
                 boards.setProgress(jsonObject.getString("progress"));
+                if(jsonObject.getString("progress").equals("@@Waiting")){
+                    boards.setErrand("");
+                }
+                else {
+                    boards.setErrand(jsonObject.getString("errand"));
+                }
                 boardsArray.add(boards);
             }
 
             for(int i=0; i<boardsArray.size();i++){
-                MainData mainData = new MainData(R.drawable.human,boardsArray.get(i).getOrders(),boardsArray.get(i).getO_time(),boardsArray.get(i).getText(),String.valueOf(boardsArray.get(i).getPrice()),boardsArray.get(i).getProgress(),boardsArray.get(i).getTitle(),boardsArray.get(i).getO_number());
+                MainData mainData = new MainData(R.drawable.human,boardsArray.get(i).getOrders(),boardsArray.get(i).getErrand(),boardsArray.get(i).getO_time(),boardsArray.get(i).getText(),String.valueOf(boardsArray.get(i).getPrice()),boardsArray.get(i).getProgress(),boardsArray.get(i).getTitle(),boardsArray.get(i).getO_number());
                 dataList.add(mainData);
             }
 
@@ -292,7 +258,7 @@ public class MainBoard_Fragment extends Fragment {
     }
 
     public String resulturl(String url) { //ip 값 바꿔주는 부분
-        String resultUrl = "http://10.0.2.2:8080/" + url;
+        String resultUrl = "http://"+FinalURLIP.ip+":"+FinalURLIP.port+"/" + url;
         return resultUrl;
     }
 

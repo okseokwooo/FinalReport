@@ -44,6 +44,7 @@ public class MenuList_Fragment extends Fragment {
 
     public Board_Module boards;
     public String[] JsonList = new String[50];
+    //public Button Completed_btn;
 
     private ArrayList<MainData> dataList;
     private MainAdapter mainAdapter;
@@ -64,12 +65,13 @@ public class MenuList_Fragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        //Completed_btn.findViewById(R.id.btn_board_completed);
         dataList = new ArrayList<>();
         mainAdapter = new MainAdapter(dataList);
         recyclerView.setAdapter(mainAdapter);
         getBoard();
         for(int i=dataList.size()-1;i>=0;i--){
-            if(!dataList.get(i).getErrandProgress().equals("@@Completed")){
+            if(!dataList.get(i).getErrandProgress().equals("@@Completed") || !dataList.get(i).getOrderID().equals(MainActivity.userID)){
                 dataList.remove(i);
             }
         }
@@ -90,7 +92,7 @@ public class MenuList_Fragment extends Fragment {
                 dataList.clear();
                 getBoard();
                 for(int i=dataList.size()-1;i>=0;i--){
-                    if(!dataList.get(i).getErrandProgress().equals("@@Waiting")){
+                    if(!dataList.get(i).getErrandProgress().equals("@@Waiting")||!dataList.get(i).getOrderID().equals(MainActivity.userID)){
                         dataList.remove(i);//
                     }
                 }
@@ -102,7 +104,7 @@ public class MenuList_Fragment extends Fragment {
                 dataList.clear();
                 getBoard();
                 for(int i=dataList.size()-1;i>=0;i--){
-                    if(!dataList.get(i).getErrandProgress().equals("@@Ongoing")){
+                    if(!dataList.get(i).getErrandProgress().equals("@@Ongoing") || !dataList.get(i).getOrderID().equals(MainActivity.userID)){
                         dataList.remove(i);
                     }
                 }
@@ -110,11 +112,23 @@ public class MenuList_Fragment extends Fragment {
                 Toast.makeText(getContext(), "진행중인 주문", Toast.LENGTH_LONG).show();
                 return true;
             }
+            case R.id.accept: {
+                dataList.clear();
+                getBoard();
+                for(int i=dataList.size()-1;i>=0;i--){
+                    if(!dataList.get(i).getErrandProgress().equals("@@Ongoing")|| dataList.get(i).getOrderID().equals(MainActivity.userID)){
+                        dataList.remove(i);
+                    }
+                }
+                mainAdapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "수락한 주문", Toast.LENGTH_LONG).show();
+                return true;
+            }
             case R.id.completed: {
                 dataList.clear();
                 getBoard();
                 for(int i=dataList.size()-1;i>=0;i--){
-                    if(!dataList.get(i).getErrandProgress().equals("@@Completed")){
+                    if(!dataList.get(i).getErrandProgress().equals("@@Completed") || !dataList.get(i).getOrderID().equals(MainActivity.userID)){
                         dataList.remove(i);
                     }
                 }
@@ -126,52 +140,6 @@ public class MenuList_Fragment extends Fragment {
                 Intent intent = new Intent(this.getActivity(), LoginActivity.class);
                 startActivity(intent);
                 return true;
-            }
-            case R.id.Systheme: {
-                SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("systheme", MODE_PRIVATE);    // test 이름의 기본모드 설정
-                final SharedPreferences.Editor editor = sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
-
-                final int[] selectedItem = {0};
-                final String[] items = new String[]{"다크모드", "라이트모드", "시스템 설정값"};
-                AlertDialog.Builder dialog = new AlertDialog.Builder(this.getActivity());
-                dialog.setTitle("테마선택")
-                        .setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                selectedItem[0] = which;
-                            }
-                        })
-                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if (selectedItem[0] == 0) {
-                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                                    Toast.makeText(getContext(), "어두운테마 적용됨", Toast.LENGTH_LONG).show();
-                                    editor.putString("theme", "dark");
-                                    editor.commit();
-                                } else if (selectedItem[0] == 1) {
-                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                                    Toast.makeText(getContext(), "밝은테마 적용됨", Toast.LENGTH_LONG).show();
-                                    editor.putString("theme", "light");
-                                    editor.commit();
-                                } else {
-                                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                                    Toast.makeText(getContext(), "시스템설정값 적용됨", Toast.LENGTH_LONG).show();
-                                    editor.putString("theme", "system");
-                                    editor.commit();
-                                }
-                            }
-                        })
-                        .setNeutralButton("취소", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getContext(), "취소 버튼을 눌렀습니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                dialog.create();
-                dialog.show();
-                return true;
-
             }
             default: {
                 return true;
@@ -186,6 +154,8 @@ public class MenuList_Fragment extends Fragment {
         getActivity().invalidateOptionsMenu();
     }
 
+
+
     public void getBoard(){
         //boardsArray 및 JsonList 초기화
         boardsArray.clear();
@@ -193,11 +163,15 @@ public class MenuList_Fragment extends Fragment {
             JsonList[i] = null;
         }
 
+        boardsArray.clear();
+        for(int i =0;i<JsonList.length;i++){
+            JsonList[i] = null;
+        }
+
         //서버에서 데이터 받아오는곳
         ContentValues values = new ContentValues();
-        values.put("UserOwnOrders",MainActivity.userID);
         String response = "";
-        NetworkTask networkTask = new NetworkTask(resulturl("LoadOwnOrdersServlet"), values);
+        NetworkTask networkTask = new NetworkTask(resulturl("LoadBoardServlet"), values);
         try {
             response = networkTask.execute().get();
             Log.d("",response);
@@ -230,11 +204,17 @@ public class MenuList_Fragment extends Fragment {
                 boards.setPrice(jsonObject.getInt("price"));
                 boards.setO_time(jsonObject.getString("o_time").substring(8));
                 boards.setProgress(jsonObject.getString("progress"));
+                if(jsonObject.getString("progress").equals("@@Waiting")){
+                    boards.setErrand("");
+                }
+                else {
+                    boards.setErrand(jsonObject.getString("errand"));
+                }
                 boardsArray.add(boards);
             }
 
             for(int i=0; i<boardsArray.size();i++){
-                MainData mainData = new MainData(R.drawable.human,boardsArray.get(i).getOrders(),boardsArray.get(i).getO_time(),boardsArray.get(i).getText(),String.valueOf(boardsArray.get(i).getPrice()),boardsArray.get(i).getProgress(),boardsArray.get(i).getTitle(),boardsArray.get(i).getO_number());
+                MainData mainData = new MainData(R.drawable.human,boardsArray.get(i).getOrders(),boardsArray.get(i).getErrand(),boardsArray.get(i).getO_time(),boardsArray.get(i).getText(),String.valueOf(boardsArray.get(i).getPrice()),boardsArray.get(i).getProgress(),boardsArray.get(i).getTitle(),boardsArray.get(i).getO_number());
                 dataList.add(mainData);
             }
         }
@@ -244,7 +224,7 @@ public class MenuList_Fragment extends Fragment {
     }
 
     public String resulturl(String url) { //ip 값 바꿔주는 부분
-        String resultUrl = "http://10.0.2.2:8080/" + url;
+        String resultUrl = "http://"+FinalURLIP.ip+":"+FinalURLIP.port+"/" + url;
         return resultUrl;
     }
 

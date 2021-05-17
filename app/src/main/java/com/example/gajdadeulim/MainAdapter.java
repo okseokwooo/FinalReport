@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +37,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
         this.dataList = dataList;
     }
 
-
     @NonNull
     @Override
     public MainAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -59,15 +57,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
         int o_min = Integer.parseInt(o_m);
         int o_hour = Integer.parseInt(o_h);
         Calendar cal = Calendar.getInstance();
-        int hour = cal.get(Calendar.HOUR_OF_DAY)+9;
-        if(hour>24)hour = hour-24;
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
         int min = cal.get(Calendar.MINUTE);
         int sec = cal.get(Calendar.SECOND);
 
         holder.iv_profile.setImageResource(dataList.get(position).getIv_profile());
-        holder.errandName.setText(dataList.get(position).getErrandName());
+        holder.orderID.setText(dataList.get(position).getOrderID());
         holder.errandContent.setText(dataList.get(position).getErrandContent());
-        holder.errandPrice.setText("가격:"+dataList.get(position).getErrandPrice()+"원");
+        holder.errandPrice.setText(dataList.get(position).getErrandPrice()+"원");
         if(hour == o_hour){
             if(min == o_min){
                 holder.errandTime.setText(sec-o_sec+"초 전");
@@ -75,17 +72,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
             else holder.errandTime.setText(min-o_min+"분 전");
         }
         else holder.errandTime.setText(hour-o_hour+"시간 전");
-        //holder.errandTime.setText(dataList.get(position).getErrandTime());
         holder.errandProgress.setText(dataList.get(position).getErrandProgress());
         holder.errandTitle.setText(dataList.get(position).getErrandTitle());
-
-
         holder.onBind(dataList.get(position),position);
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String curName = holder.errandName.getText().toString();
+                String curName = holder.orderID.getText().toString();
             }
         });
 
@@ -93,8 +87,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
             @Override
             public boolean onLongClick(View v) {
                 Log.d("야",holder.errandProgress.getText().toString()+"");
-                if(holder.errandProgress.getText().toString().equals("@@Waiting") && holder.errandName.getText().toString().equals(MainActivity.userID) ){
-
+                if(holder.errandProgress.getText().toString().equals("@@Waiting") && holder.orderID.getText().toString().equals(MainActivity.userID) ){
                     AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(v.getContext());
                     myAlertBuilder.setTitle("주문 취소");
                     myAlertBuilder.setMessage("주문을 취소하시겠습니까?");
@@ -102,13 +95,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
                         //Ok 버튼 눌렀을때
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ContentValues values = new ContentValues();
-                            values.put("@@Cancel",String.valueOf(dataList.get(position).getO_Number()));
-                            NetworkTask networkTask = new NetworkTask(resulturl("OrderCancelServlet"), values);
-                            networkTask.execute();
+                    ContentValues values = new ContentValues();
+                    values.put("@@Cancel",String.valueOf(dataList.get(position).getO_Number()));
+                    NetworkTask networkTask = new NetworkTask(resulturl("OrderCancelServlet"), values);
+                    networkTask.execute();
 
-                            remove(holder.getAdapterPosition());
-                            notifyDataSetChanged();
+                    remove(holder.getAdapterPosition());
+                    notifyDataSetChanged();
                         }
                     });
                     myAlertBuilder.setNegativeButton("뒤로가기", new DialogInterface.OnClickListener() {
@@ -144,7 +137,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
 
         private MainData data;
         protected ImageView iv_profile;
-        protected TextView errandName;
+        protected TextView orderID;
         protected TextView errandContent;
         protected TextView errandTime;
         protected TextView errandPrice;
@@ -153,12 +146,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
         private int position;
         protected LinearLayout errandLayout;
         protected LinearLayout hiddenLayout;
-        protected Button orderApply;
+        protected Button orderApply, btn_board_completed;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.iv_profile = itemView.findViewById(R.id.iv_profile);
-            this.errandName = itemView.findViewById(R.id.errandName);
+            this.orderID = itemView.findViewById(R.id.sendID);
             this.errandContent = itemView.findViewById(R.id.errandContent);
             this.errandTime = itemView.findViewById(R.id.errandTime);
             this.errandPrice = itemView.findViewById(R.id.errandPrice);
@@ -167,8 +160,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
             this.errandLayout = itemView.findViewById(R.id.errandLayout);
             this.hiddenLayout = itemView.findViewById(R.id.HiddenLayout);
             this.orderApply = itemView.findViewById(R.id.btn_OrderApply);
-
+            this.btn_board_completed = itemView.findViewById(R.id.btn_board_completed);
             orderApply.setOnClickListener(this);
+            btn_board_completed.setOnClickListener(this);
         }
 
         void onBind(MainData data, int position) {
@@ -202,31 +196,56 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
                     break;
 
                 case R.id.btn_OrderApply:
+                    if(dataList.get(position).getOrderID().equals(MainActivity.userID)) {
+                        Toast.makeText(context, "자신이 등록한 게시글입니다.", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    else
+                    {
+                        ContentValues values = new ContentValues();
+                        values.put("ErrandUserID", MainActivity.userID);
+                        values.put("@@Ongoing", String.valueOf(dataList.get(position).getO_Number()));
+
+                        String response = "";
+                        NetworkTask networkTask = new NetworkTask(resulturl("EditProgressSevlet"), values);
+                        try {
+                            response = networkTask.execute().get();
+                            Log.d("", response);
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        if (response.contains("@@AcceptOrder")) {
+                            Toast.makeText(context, "정상적으로 수락 되었습니다.", Toast.LENGTH_SHORT).show();
+                            remove(getAdapterPosition());
+                            notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(context, "이미 수락된 심부름 입니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    }
+                case R.id.btn_board_completed:
                     ContentValues values = new ContentValues();
-                    values.put("ErrandUserID", MainActivity.userID);
-                    values.put("@@Ongoing", String.valueOf(dataList.get(position).getO_Number()));
+                    values.put("UserOwnOrders", String.valueOf(dataList.get(position).getO_Number()));
 
                     String response = "";
-                    NetworkTask networkTask = new NetworkTask(resulturl("EditProgressSevlet"), values);
+                    NetworkTask networkTask = new NetworkTask(resulturl("OrderCompleteServlet"), values);
                     try {
                         response = networkTask.execute().get();
-                        Log.d("",response);
+                        Log.d("", response);
+                        remove(getAdapterPosition());
+                        notifyDataSetChanged();
+                        Toast.makeText(context, "주문이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
                     } catch (ExecutionException e) {
                         e.printStackTrace();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
+                        break;
                     }
-                    if (response.contains("@@AcceptOrder")){
-                        Toast.makeText(context,"정상적으로 수락 되었습니다.",Toast.LENGTH_SHORT).show();
-                        remove(getAdapterPosition());
-                        notifyDataSetChanged();
-                    }
-                    else{
-                        Toast.makeText(context, "이미 수락된 심부름 입니다.", Toast.LENGTH_SHORT).show();
-                    }
-                    break;
-
+                default:break;
             }
+
         }
         private void changeVisibility(final boolean isExpanded) {
             // height 값을 dp로 지정해서 넣고싶으면 아래 소스를 이용
@@ -248,8 +267,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
                     hiddenLayout.requestLayout();
                     // imageView가 실제로 사라지게하는 부분
                     hiddenLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
-                    //여기서 아이디랑 선택된아이디 비교하는방법 --?
-                    //orderApply.setVisibility(View.GONE);
+
+                    if((dataList.get(position).getOrderID().equals(MainActivity.userID) || dataList.get(position).getErrandID().equals(MainActivity.userID)) && dataList.get(position).getErrandProgress().equals("@@Ongoing")) {
+                            btn_board_completed.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        btn_board_completed.setVisibility(View.GONE);
+                    }
+                    if(!dataList.get(position).getOrderID().equals(MainActivity.userID) && dataList.get(position).getErrandProgress().equals("@@Waiting")) {
+                        orderApply.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        orderApply.setVisibility(View.GONE);
+                    }
                 }
             });
             // Animation start
@@ -257,7 +287,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
         }
     }
     public String resulturl(String url) { //ip 값 바꿔주는 부분
-        String resultUrl = "http://10.0.2.2:8080/" + url;
+        String resultUrl = "http://"+FinalURLIP.ip+":"+FinalURLIP.port+"/" + url;
         return resultUrl;
     }
 
@@ -292,6 +322,5 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CustomViewHold
             //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
         }
     }
-
 
 }

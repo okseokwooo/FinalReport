@@ -31,21 +31,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        SharedPreferences sharedPreferences= getSharedPreferences("systheme", MODE_PRIVATE);    // test 이름의 기본모드 설정, 만약 test key값이 있다면 해당 값을 불러옴.
-        String theme = sharedPreferences.getString("theme","");
-
-        if(theme.contains("dark")){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-        else if(theme.contains("light")){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
-        else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-        }
-
         LoginToolbar = findViewById(R.id.LoginToolbar);
-        LoginToolbar.setTitle(R.string.defaultToolbar);
+        LoginToolbar.setTitle("");
         setSupportActionBar(LoginToolbar);
 
         IDEditText = findViewById(R.id.IDEditText);
@@ -99,7 +86,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
     public String resulturl(String url) { //ip 값 바꿔주는 부분
-        String resultUrl = "http://10.0.2.2:8080/" + url;
+        String resultUrl = "http://"+FinalURLIP.ip+":"+FinalURLIP.port+"/" + url;
         return resultUrl;
     }
 

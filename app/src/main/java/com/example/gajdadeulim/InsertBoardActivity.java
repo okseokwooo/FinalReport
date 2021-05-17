@@ -244,7 +244,7 @@ public class InsertBoardActivity extends AppCompatActivity {
     }
 
     public String resulturl(String url) { //ip 값 바꿔주는 부분
-        String resultUrl = "http://10.0.2.2:8080/" + url;
+        String resultUrl = "http://"+FinalURLIP.ip+":"+FinalURLIP.port+"/" + url;
         return resultUrl;
     }
     public class NetworkTask extends AsyncTask<Void, Void, String> {

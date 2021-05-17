@@ -30,28 +30,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mainBoardFragButton" />
+            android:text="@string/mainBoardFragButton"
+            android:textColor="@color/colorMain"
+            android:background="@drawable/edge"
+            android:layout_marginLeft="5dp"/>
+
         <Button
             android:id="@+id/MenuListFragButton"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/MenuListFragButton"
-            />
+            android:textColor="@color/colorMain"
+            android:background="@drawable/edge"
+            android:layout_marginLeft="5dp"/>
+
         <Button
             android:id="@+id/ChattingFragButton"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/ChattingFragButton"
-            />
+            android:textColor="@color/colorMain"
+            android:background="@drawable/edge"
+            android:layout_marginLeft="5dp"/>
+
         <Button
             android:id="@+id/myInfoFragButton"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/myInfoFragButton"
-            />
+            android:textColor="@color/colorMain"
+            android:background="@drawable/edge"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
     </LinearLayout>
 
 </RelativeLayout>

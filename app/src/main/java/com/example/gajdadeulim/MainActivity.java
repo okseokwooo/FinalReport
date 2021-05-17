@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         userID = getIntent().getStringExtra("userID");
 
+        //서버되면 실행할거
+        //onStartService();
+
         mainBoardFragButton = findViewById(R.id.mainBoardFragButton);
         MenuListFragButton = findViewById(R.id.MenuListFragButton);
         ChattingFragButton = findViewById(R.id.ChattingFragButton);
@@ -108,5 +111,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+    public void onStartService(){
+        Intent intent = new Intent(this, MyService.class);
+        intent.setAction("Access");
+        startService(intent);
+    }
 
+    // Service 종료시킬 때, 사용하면 됨
+    public void onStopService(){
+        Intent intent = new Intent(this, MyService.class);
+        stopService(intent);
+    }
 }

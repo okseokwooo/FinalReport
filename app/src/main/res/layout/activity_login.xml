@@ -28,79 +28,78 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/logo" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/IDLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/IDTitleView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/IDTitleView"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/IDEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="77dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/IDEditText"
-                android:inputType="textPersonName"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/PWLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/PWTitleView"
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:text="@string/PWTitleView"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/edge"
+                android:drawableLeft="@drawable/humanimage"
+                android:drawablePadding="10dp"
+                android:hint="아이디"
+                android:padding="10dp"
+                android:textColor="@color/colorMain"
+                android:textColorHint="@color/colorMain" />
 
             <EditText
                 android:id="@+id/PWEditText"
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/PWEditText"
-                android:inputType="textPersonName"
-                android:textSize="30sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/BtnLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edge"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@color/colorMain"
+                android:textColorHint="@color/colorMain"
+                android:drawableLeft="@drawable/passimage"
+                android:drawablePadding="10dp"/>
 
             <Button
                 android:id="@+id/LoginConfirmBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/LoginConfirmBtn" />
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edge"
+                android:text="로그인"
+                android:textColor="@color/colorMain"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/MoveMembershipBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/MoveMembershipBtn" />
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edge"
+                android:text="회원가입"
+                android:textColor="@color/colorMain"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

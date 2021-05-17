@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/itemlayout"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/errandLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/iv_profile"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
             android:src="@mipmap/ic_launcher"
             app:srcCompat="@drawable/human" />
 
@@ -29,61 +33,60 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginBottom="10dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/errandName"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/errandTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/errandName"
+                    android:layout_weight="0.66"
+                    android:gravity="center|center_horizontal|left"
+                    android:text="@string/errandTitle"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/errandTime"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/errandTime" />
-
+                    android:layout_weight="0.33"
+                    android:gravity="right|center_horizontal"
+                    android:text="@string/errandTime"
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/errandTitle"
-                    android:layout_width="130dp"
+                    android:id="@+id/sendID"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/errandTitle"/>
-
-                <TextView
-                    android:id="@+id/errandProgress"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:text="@string/errandContent"
-                    android:visibility="invisible" />
+                    android:layout_weight="0.33"
+                    android:gravity="center_horizontal|left"
+                    android:text="@string/errandName"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/errandPrice"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/errandPrice" />
+                    android:layout_weight="0.33"
+                    android:gravity="bottom|right|center_horizontal"
+                    android:text="@string/errandPrice"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -94,25 +97,68 @@
     <LinearLayout
         android:id="@+id/HiddenLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="158dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:animateLayoutChanges="true"
         android:orientation="horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/errandContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/errandContent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.3"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_OrderApply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:text="수락하기" />
+
+                <Button
+                    android:id="@+id/btn_board_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:text="완료하기"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/errandContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/errandContent" />
+            android:id="@+id/errandProgress"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/errandProgress"
+            android:visibility="invisible" />
 
-        <Button
-            android:id="@+id/btn_OrderApply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:text="수락하기" />
     </LinearLayout>
 </LinearLayout>

@@ -29,10 +29,10 @@
     <string name="EmailAuthenticateEditText">인증코드를 입력하세요.</string>
     <string name="errandContent">물건</string>
     <string name="errandTime">시간</string>
-    <string name="errandPrice">가격</string>
+    <string name="errandPrice">심부름 값</string>
     <string name="errandName">이름</string>
-    <string name="mainToolbar">갖다드림</string>
-    <string name="defaultToolbar">갖다드림</string>
+    <string name="mainToolbar">bring you</string>
+    <string name="defaultToolbar">bring you</string>
     <string name="BorderTitle">제목</string>
     <string name="BorderTitleHint">게시글의 제목을 입력해주세요.</string>
     <string name="BorderAddress">상세주소</string>
@@ -54,4 +54,5 @@
     <string name="CustomCarecb_3">회원 탈퇴</string>
     <string name="CustomCarecb_4">서비스 개선 문의</string>
     <string name="CustomCarecb_5">기타</string>
+    <string name="errandProgress">진행</string>
 </resources>

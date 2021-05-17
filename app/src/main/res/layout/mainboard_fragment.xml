@@ -29,8 +29,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="590dp"
                 android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
                 android:layout_weight="1"
                 android:scrollbarFadeDuration="0"
                 android:scrollbarSize="5dp"
@@ -41,16 +42,21 @@
 
             <Button
                 android:id="@+id/BoardInBtn"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="150dp"
 
-                android:layout_marginBottom="82dp"
+                android:layout_marginBottom="84dp"
                 android:layout_x="50dp"
                 android:layout_y="25dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
 
-                android:background="@drawable/write" />
+                android:background="@drawable/edge"
+                android:text="글쓰기"
+                android:textColor="@color/colorMain"
+                android:drawableLeft="@drawable/writeimage" />
 
 
         </RelativeLayout>
