@@ -63,6 +63,7 @@ ___
 ## 7. 각 액티비티의 기능별 설명
 
 |클래스|기능|layout|
+|------|---|---|
 |AddressActivity.java|채팅방 GPS|activity_adress.xml|
 |Board_Module.java|게시글작성내용서버전송|x|
 |Chat_Module.java|채팅내용서버전송|x|
