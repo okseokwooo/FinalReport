@@ -61,18 +61,22 @@ ___
 
 ## 5. 앱 실행 환경 구축
 
-1. FinalURLIP.java  파일에서 public final static String adress = "My IP";
+1. JSP 개발환경 구축 https://blog.naver.com/skews/222323655111 참고
 
+2. Android Studio 실행
+
+       File -> Open -> GajDaDeuLim
+       FinalURLIP.java  파일에서 public final static String adress = "My IP";
        AVD의 경우 My IP부분에 10.0.2.2:8080 입력
        개인Device의 경우 My IP부분에 자신의 IP입력
        자신 IP 확인방법 : (win + r) -> cmd -> ipconfig -> Ipv4주소
 
-2. MySQL Workbench 실행
+3. MySQL Workbench 실행
 
        스키마 생성 (Schema name = gddl)
        "갖다드림" SQL file Query 실행
 
-3. Eclipse 실행
+4. Eclipse 실행
 
 ```java
 public class FinalDB {
@@ -86,7 +90,12 @@ public class FinalDB {
        
        My DB ID 부분에 자신의 MySQL ID 입력
 
-       My DB Pass 부분에 자신의 MySQL Password 입력
+       My DB Pass 부분에 자신의 MySQL Password 입력 후
+       
+       GDDL_MobileServer 패키지 우클릭 -> Run As -> Run on Server
+5. 앱 실행
+       
+       Android Studio 에서 Run
 ___
 
 ## 6. 각 클래스 기능별 설명
