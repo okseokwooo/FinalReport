@@ -1,4 +1,5 @@
-## FinalReport
+# FinalReport
+![logo](https://user-images.githubusercontent.com/79950095/120919672-c50a3600-c6f5-11eb-9ed7-95359f927284.png)
 # Project Name = 갖다드림(bring you)
 # Team Member : 김준혁, 김형진, 마건우, 옥석우, 차형석
 ___
