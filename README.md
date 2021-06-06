@@ -97,7 +97,6 @@ ___
 |NoticeData.java|공지데이터|x|
 |Notify_Module.java|공지모듈|x|
 |NotifyActivity.java|공지사항 화면|activity_notify.xml|
-|OrderActiviry.java||activity_order.xml|
 |RequestHttpURLConnection.java|URL|x|
 |SharedPrefsUtil.java|필요한거?|x|
 |SignatureUtil.java|??|x|
