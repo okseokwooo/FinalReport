@@ -3,15 +3,14 @@
 ## 목차
 
  1. 주제 선정 이유
- 2. 갖다드림 어플 소개
+ 2. "갖다드림" 앱 소개
  3. 유사 앱 분석 및 차이점
- 4. 어플을 제작하기 위해 필요한 도구
- 5. json 사용 방법 (형진)
- 6. MySQL Workbench 사용방법 (건우)
- 7. 각 클래스 기능별 설명 (일단 구분)
- 8. 클래스 별 주요 코드 상세 설명 (일단 구분)
- 9. 어플리케이션 한계점
- 10. 결론
+ 4. 앱 제작 툴 소개
+ 5. 앱 실행 환경 구축
+ 6. 각 클래스 기능별 설명 (일단 구분)
+ 7. 클래스 별 주요 코드 상세 설명 (일단 구분)
+ 8. "갖다드림" 어플리케이션 한계점
+ 9. 결론
 
 ___
 
@@ -54,21 +53,41 @@ ___
 
 ## 4. 어플을 제작하기 위해 필요한 도구
 
- -  안드로이드 스튜디오
- -  데이터베이스 (workbench)
- -  서버 (json)
+ -  안드로이드 스튜디오 (.version)
+ -  데이터베이스 (MySQL Workbench .version)
+ -  서버 (Eclipse .vsersion)
 
 ___
 
-## 5. json 사용 방법
+## 5. 앱 실행 환경 구축
 
+1. FinalURLIP.java  파일에서 public final static String adress = "My IP";
+
+       AVD의 경우 My IP부분에 10.0.2.2:8080 입력
+       개인Device의 경우 My IP부분에 자신의 IP입력
+       자신 IP 확인방법 : (win + r) -> cmd -> ipconfig -> Ipv4주소
+
+2. MySQL Workbench 실행
+
+스키마 생성 (Schema name = gddl)
+"갖다드림" SQL file Query 실행
+
+3. Eclipse 실행
+
+       GDDL_MobileServer -> src -> FinalDB.java
+       ```java
+       public class FinalDB {
+          public final static String dbID = "My DB ID";
+          public final static String dbPassword = "My DB Pass";
+          public final static String dbProject = "gddl";
+       }
+       ```
+       My DB ID 부분에 자신의 MySQL ID 입력
+
+       My DB Pass 부분에 자신의 MySQL Password 입력
 ___
 
-## 6. MySQL Workbench 사용 방법
-
-___
-
-## 7. 각 클래스 기능별 설명
+## 6. 각 클래스 기능별 설명
 
 |클래스|기능|layout|
 |------|---|---|
@@ -113,11 +132,11 @@ ___
 
 ___
 
-## 8. 클래스별 주요 코드 상세 설명
+## 7. 클래스별 주요 코드 상세 설명
 
 ___
 
-## 9. 어플리케이션 한계점
+## 8. 어플리케이션 한계점
 
 - 코로나19 바이러스로 인한 비대면수업 = 학교주변 인원 감소
 - 방학기간 학교주변 인원 감소에 따른 사용자 감소
@@ -125,6 +144,6 @@ ___
 
 ___
 
-## 10. 결론
+## 9. 결론
 
 ___
