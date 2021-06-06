@@ -84,9 +84,9 @@ ___
 
 ```java
 public class FinalDB {
-   public final static String dbID = "My DB ID";
-   public final static String dbPassword = "My DB Pass";
-   public final static String dbProject = "gddl";
+   public final static String dbID = "My DB ID"; //본인의 데이터베이스 아이디입력
+   public final static String dbPassword = "My DB Pass"; // 본인의 데이터베이스 패스워드입력
+   public final static String dbProject = "gddl"; // "gddl" 입력
 }
 ```
        
