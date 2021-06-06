@@ -34,7 +34,8 @@ ___
 
 ## 3. 유사 앱 분석
 
-![김집사](https://user-images.githubusercontent.com/79950095/120915562-3f7b8b80-c6df-11eb-920c-97234bc4a88d.JPG)
+![김집사](https://user-images.githubusercontent.com/79950095/120915782-abaabf00-c6e0-11eb-9247-d39d6b39a116.JPG)
+
 
 ##### 어플소개
 
