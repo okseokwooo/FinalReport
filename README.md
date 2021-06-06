@@ -48,6 +48,8 @@ ___
 |서비스 제공|회사 직원|사용자|
 |서비스 범위|전국|상명대학교|
 
+출처 : https://play.google.com/store/apps/details?id=com.mybutler.android
+
 
 ## 4. 어플을 제작하기 위해 필요한 도구
 
@@ -56,5 +58,4 @@ ___
  -  서버 (json)
 
 
-출처 : https://play.google.com/store/apps/details?id=com.mybutler.android
 
