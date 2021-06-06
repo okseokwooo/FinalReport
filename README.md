@@ -50,9 +50,6 @@ ___
 입사연도 | 2006
 부서명 | Mangement
 소속본부 | HQ
-[출처] 34. 데이터 연동형 문서 만들기(3) - 알아두면 편한 Markdown 기초 문법|작성자 바른인간
-- "김집사"앱은 회사 소속 직원이 직접 고객에게 서비스를 제공,  "갖다드림"은 앱 사용자 상호간의 서비스 제공
-- "김집사"앱은 서비스 범위가 광범위하여 서비스 유지 어려움
 
 
 출처 : https://play.google.com/store/apps/details?id=com.mybutler.android
