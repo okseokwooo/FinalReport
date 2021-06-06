@@ -69,8 +69,8 @@ ___
 
 2. MySQL Workbench 실행
 
-스키마 생성 (Schema name = gddl)
-"갖다드림" SQL file Query 실행
+       스키마 생성 (Schema name = gddl)
+       "갖다드림" SQL file Query 실행
 
 3. Eclipse 실행
 
