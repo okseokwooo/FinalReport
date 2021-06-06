@@ -53,9 +53,9 @@ ___
 
 ## 4. 어플을 제작하기 위해 필요한 도구
 
- -  안드로이드 스튜디오 (.version)
- -  데이터베이스 (MySQL Workbench .version)
- -  서버 (Eclipse .vsersion)
+ -  안드로이드 스튜디오 (android studio 4.2.1) https://developer.android.com/studio?gclid=EAIaIQobChMI9InWvMeC8QIVx1VgCh3c0gDYEAAYASAAEgI3PPD_BwE&gclsrc=aw.ds
+ -  데이터베이스 (MySQL Workbench 8.0.25) https://dev.mysql.com/downloads/mysql/
+ -  서버 (Eclipse IDE 2021-03 , Tomcat 9.0) https://www.eclipse.org/downloads/ https://tomcat.apache.org/download-90.cgi
 
 ___
 
