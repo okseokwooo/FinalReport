@@ -1,6 +1,6 @@
-# FinalReport
+## FinalReport
 
-# 목차
+## 목차
 
  1. 주제 선정 이유
  2. 갖다드림 어플 소개
