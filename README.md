@@ -74,14 +74,16 @@ ___
 
 3. Eclipse 실행
 
+```java
+public class FinalDB {
+   public final static String dbID = "My DB ID";
+   public final static String dbPassword = "My DB Pass";
+   public final static String dbProject = "gddl";
+}
+```
+       
        GDDL_MobileServer -> src -> FinalDB.java
-       ```java
-       public class FinalDB {
-          public final static String dbID = "My DB ID";
-          public final static String dbPassword = "My DB Pass";
-          public final static String dbProject = "gddl";
-       }
-       ```
+       
        My DB ID 부분에 자신의 MySQL ID 입력
 
        My DB Pass 부분에 자신의 MySQL Password 입력
