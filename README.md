@@ -11,7 +11,6 @@
 <br>
 <img src="https://img.shields.io/badge/Eclipse-2C2255?style=flat-square&logo=Eclipse&logoColor=white"/>
 <img src="https://img.shields.io/badge/Tomcat9.0-F8DC75?style=flat-square&logo=Apache-Tomcat&logoColor=black"/>
-<img src="https://img.shields.io/badge/AWS-491F59?style=flat-square&logo=Amazon-AWS&logoColor=white"/>
 <br>
 
 # Project Name = 갖다드림(bring you)
