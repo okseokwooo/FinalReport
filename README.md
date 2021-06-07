@@ -1,5 +1,6 @@
 # FinalReport
 ![logo](https://user-images.githubusercontent.com/79950095/120919672-c50a3600-c6f5-11eb-9ed7-95359f927284.png)
+<p align="center">
 <br><br><br>
 <img src="https://img.shields.io/badge/license-mit-green">
 <img src="https://img.shields.io/github/issues/hongjin4790/SYE-project">
@@ -12,6 +13,7 @@
 <img src="https://img.shields.io/badge/Eclipse-2C2255?style=flat-square&logo=Eclipse&logoColor=white"/>
 <img src="https://img.shields.io/badge/Tomcat9.0-F8DC75?style=flat-square&logo=Apache-Tomcat&logoColor=black"/>
 <br>
+ </p>
 
 # Project Name = 갖다드림(bring you)
 # Team Member : 김준혁, 김형진, 마건우, 옥석우, 차형석
