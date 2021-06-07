@@ -122,19 +122,17 @@ ___
 
 |클래스|기능|layout|
 |------|---|---|
-|AddressActivity.java|채팅방 GPS|activity_adress.xml|
+|AddressActivity.java|구글맵 api를 사용한 위치확인|activity_adress.xml|
 |Board_Module.java|게시글관련 데이터들의 클래스화|x|
 |Chat_Module.java|채팅관련 데이터들의 클래스화|x|
-|ChatList_Module.java|채팅목록관련 데이터들의 클래스화|x|
 |Chatting_Fragment.java|채팅방 보기|chatting_fragment.xml|
-|ChattingAdapter.java|채팅어댑터|x|
-|ChattingContentData.java|채팅내용데이터|x|
-|ChattingListData.java|채팅목록데이터|x|
-|ChattingRecordMoudule.java|채팅기록모듈|x|
+|ChattingAdapter.java|Chatting_Fragment RecyclerView에 들어갈 어댑터|x|
+|ChattingContentData.java|ChattingAdapter 들어갈 컴포넌트 클래스화|x|
+|ChattingRecordMoudule.java|채팅기록관련 데이터들의 클래스화|x|
 |CustomCareActivity.java|고객센터 Activity|activity_custom_care.xml|
-|FinalURLIP.java|서버on/off IP주소설정|x|
-|GMailSender.java|학번인증번호전송관련|x|
-|GpsTracker.java|GPS관련|x|
+|FinalURLIP.java|서버 IP,port주소설정|x|
+|GMailSender.java|학번 인증번호 전송관련 라이브러리|x|
+|GpsTracker.java|GPS관련 라이브러리|x|
 |GuideActivity.java|전체 가이드라인 설정|activity_guide.xml|
 |Guide_First.java|가이드라인1|guide_line_first.xml|
 |Guide_second.java|가이드라인2|guide_line_second.xml|
@@ -144,19 +142,18 @@ ___
 |InsetBoardActivity.java|게시판에 글쓰기 화면|activity_insert_board.xml|
 |LoginActivity.java|로그인 화면|activity_login.xml|
 |MainActivity.java|메인 화면|activity_main.xml|
-|MainAdapter.java|메인어댑터|x|
+|MainAdapter.java|MainActivity RecyclerView에 들어갈 어댑터|x|
 |MainBoard_Fragment.java|게시판목록보기화면|mainboard_fragment.xml|
-|MainData.java|메인데이터|x|
+|MainData.java|MainAdapter에 들어갈 컴포넌트 클래스화|x|
 |MembershipActivity.java|회원가입 화면|activity_membership.xml|
 |MenuList_Fragment.java|주문목록 화면|menulist_fragment.xml|
 |MyInfo_Fragment.java|내정보 화면|myinfo_fragment.xml|
-|MyService.java|서버연결|x|
+|MyService.java|양방향 통신을 하기위한 안드로이드 Service|x|
 |NoticeAdapter.java|NotifyActivity RecyclerView에 들어갈 어댑터|x|
 |NoticeData.java|NoticeAdapter에 들어갈 컴포넌트 클래스화|x|
 |Notify_Module.java|공지관련 데이터들의 클래스화|x|
 |NotifyActivity.java|공지사항 화면|activity_notify.xml|
 |RequestHttpURLConnection.java|단방향통신을 하기위한 라이브러리|x|
-|SharedPrefsUtil.java|필요한거?|x|
 |SignatureUtil.java|해시코드로 변환하기위한 라이브러리|x|
 |Splash.java|앱 실행시 Splash Animation|splash.xml|
 |User_Module.java|유저관련 데이터들의 클래스화|x|
