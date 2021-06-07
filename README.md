@@ -123,9 +123,9 @@ ___
 |클래스|기능|layout|
 |------|---|---|
 |AddressActivity.java|채팅방 GPS|activity_adress.xml|
-|Board_Module.java|게시글작성내용서버전송|x|
-|Chat_Module.java|채팅내용서버전송|x|
-|ChatList_Module.java|채팅목록서버전송|x|
+|Board_Module.java|게시글관련 데이터들의 클래스화|x|
+|Chat_Module.java|채팅관련 데이터들의 클래스화|x|
+|ChatList_Module.java|채팅목록관련 데이터들의 클래스화|x|
 |Chatting_Fragment.java|채팅방 보기|chatting_fragment.xml|
 |ChattingAdapter.java|채팅어댑터|x|
 |ChattingContentData.java|채팅내용데이터|x|
@@ -151,15 +151,15 @@ ___
 |MenuList_Fragment.java|주문목록 화면|menulist_fragment.xml|
 |MyInfo_Fragment.java|내정보 화면|myinfo_fragment.xml|
 |MyService.java|서버연결|x|
-|NoticeAdapter.java|공지어댑터|x|
-|NoticeData.java|공지데이터|x|
-|Notify_Module.java|공지모듈|x|
+|NoticeAdapter.java|NotifyActivity RecyclerView에 들어갈 어댑터|x|
+|NoticeData.java|NoticeAdapter에 들어갈 컴포넌트 클래스화|x|
+|Notify_Module.java|공지관련 데이터들의 클래스화|x|
 |NotifyActivity.java|공지사항 화면|activity_notify.xml|
-|RequestHttpURLConnection.java|URL|x|
+|RequestHttpURLConnection.java|단방향통신을 하기위한 라이브러리|x|
 |SharedPrefsUtil.java|필요한거?|x|
-|SignatureUtil.java|??|x|
+|SignatureUtil.java|해시코드로 변환하기위한 라이브러리|x|
 |Splash.java|앱 실행시 Splash Animation|splash.xml|
-|User_Module.java|유저모듈|x|
+|User_Module.java|유저관련 데이터들의 클래스화|x|
 
 ___
 
