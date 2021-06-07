@@ -1,6 +1,7 @@
 # FinalReport
 <p align="center">
 <img width="700px" src="https://user-images.githubusercontent.com/79950095/120919672-c50a3600-c6f5-11eb-9ed7-95359f927284.png">
+<br>
 <img src="https://img.shields.io/badge/license-mit-green">
 <img src="https://img.shields.io/github/issues/hongjin4790/SYE-project">
 <img src="https://img.shields.io/badge/tag-v1.0.0-blue">
