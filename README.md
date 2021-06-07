@@ -130,7 +130,7 @@ ___
 |ChattingContentData.java|ChattingAdapter 들어갈 컴포넌트 클래스화|x|
 |ChattingRecordMoudule.java|채팅기록관련 데이터들의 클래스화|x|
 |CustomCareActivity.java|고객센터 Activity|activity_custom_care.xml|
-|FinalURLIP.java|서버 IP,port주소설정|x|
+|FinalURLIP.java|서버 ,port주소설정|x|
 |GMailSender.java|학번 인증번호 전송관련 라이브러리|x|
 |GpsTracker.java|GPS관련 라이브러리|x|
 |GuideActivity.java|전체 가이드라인 설정|activity_guide.xml|
