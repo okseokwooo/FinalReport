@@ -113,7 +113,13 @@ public class FinalDB {
        My DB Pass 부분에 자신의 MySQL Password 입력 후
        
        GDDL_MobileServer 패키지 우클릭 -> Run As -> Run on Server
-5. 앱 실행
+5. 구글맵 API 활성화
+
+       https://console.cloud.google.com/apis/credentials?project=handy-amplifier-311401
+       
+       위 링크로 들어가 자신의 API Key 를 추가 pakage name = com.example.gajdadeulim
+
+6. 앱 실행
        
        Android Studio 에서 Run
 ___
