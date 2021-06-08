@@ -131,6 +131,9 @@ public class FinalDB {
 6. 앱 실행
        
        Android Studio 에서 Run
+ 
+7. 문의
+       질문 사항이 있거나 원활히 진행되지 않는다면 Ecampus에 "차형석" 학생에게 메세지 보내주시면 감사하겠습니다.
 ___
 
 ## 6. 각 클래스 기능별 설명
