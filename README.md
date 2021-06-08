@@ -196,7 +196,9 @@ ___
      Week5.DB - 초기 데이터베이스 스키마 설계,
      서버/안스 회원가입 및 로그인 환경 구축 ,
            - 구글맵활용 GPS로 현위치 찾기 - 김준혁,옥석우,차형석
-           ## 주요코드
+  ## 주요코드
+  구글맵 활용 GPS 현위치 찾기
+  
 ```java
             public String getCurrentAddress(LatLng latlng) {
         //지오코더... GPS를 주소로 변환
@@ -222,6 +224,27 @@ ___
         } else {
             Address address = addresses.get(0);
             return address.getAddressLine(0).toString();
+        }
+    }
+    LocationCallback locationCallback = new LocationCallback() {
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            super.onLocationResult(locationResult);
+            List<Location> locationList = locationResult.getLocations();
+            if (locationList.size() > 0) {
+                location = locationList.get(locationList.size() - 1);
+                //location = locationList.get(0);
+                currentPosition
+                        = new LatLng(location.getLatitude(), location.getLongitude());
+                String markerTitle = getCurrentAddress(currentPosition);
+                String markerSnippet = "위도:" + String.valueOf(location.getLatitude())
+                        + " 경도:" + String.valueOf(location.getLongitude());
+                Log.d(TAG, "onLocationResult : " + markerSnippet);
+
+                //현재 위치에 마커 생성하고 이동
+                setCurrentLocation(location, markerTitle, markerSnippet);
+                mCurrentLocatiion = location;
+            }
         }
     }
 ```
