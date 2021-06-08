@@ -81,9 +81,18 @@ ___
 
 ## 5. 앱 실행 환경 구축
 
-1. JSP 개발환경 구축 https://blog.naver.com/skews/222323655111 참고
+1. JSP 개발환경 구축 <br>
+   (1) Eclipse Java EE 다운로드 https://www.eclipse.org/downloads/packages/ 에서 Eclipse IDE for Enterprise Java and Web Developers 설치<br>
+   (2) Eclipse -> New -> Open File -> GDDL_MobileServer<br>
+   (3) Tomcat 다운로드 https://shinysblog.tistory.com/5<br>
+   (4) GDDL_MobileServer 우클릭 -> Properties -> Java Build Path -> Libaries -> gson과 mysql-connect가 없을때만 Add JARs.. -> GDDL_MobileServer -> WebContent -> WEB-INF -> gson, mysql-connect 둘다 Add && Apply<br>
+   (5) GDDL_MobileServer 우클릭 -> Properties -> WebProjectSetting -> Context root : / 입력 -> Apply<br>
+   (6) GDDL_MobileServer 우클릭 -> Properties -> Server -> Tomcat9.0 -> Apply<br>
+   (7) Eclipse -> Project -> Properties -> Targeted Runtime -> New -> Tomcat9.0 -> Finish -> Apply<br>
 
-2. Android Studio 실행
+2. Mysql 설치환경 구축 https://m.blog.naver.com/bjh7007/221829548634 참고
+
+3. Android Studio 실행
 
        File -> Open -> GajDaDeuLim
        FinalURLIP.java  파일에서 public final static String adress = "My IP";
@@ -91,12 +100,12 @@ ___
        개인Device의 경우 My IP부분에 자신의 IP입력
        자신 IP 확인방법 : (win + r) -> cmd -> ipconfig -> Ipv4주소
 
-3. MySQL Workbench 실행
+4. MySQL Workbench 실행
 
        스키마 생성 (Schema name = gddl)
        "갖다드림" SQL file Query 실행
 
-4. Eclipse 실행
+5. Eclipse 실행
 
 ```java
 public class FinalDB {
