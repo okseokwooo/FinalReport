@@ -81,15 +81,15 @@ ___
 
 ## 5. 앱 실행 환경 구축
 
-1. JSP 개발환경 구축 <br>
+1. JSP 개발환경 구축
 
-       (1) Eclipse Java EE 다운로드 https://www.eclipse.org/downloads/packages/ 에서 Eclipse IDE for Enterprise Java and Web Developers 설치<br>
-       (2) Eclipse -> New -> Open File -> GDDL_MobileServer<br>
-       (3) Tomcat 다운로드 https://shinysblog.tistory.com/5<br>
-       (4) GDDL_MobileServer 우클릭 -> Properties -> Java Build Path -> Libaries -> gson과 mysql-connect가 없을때만 Add JARs.. -> GDDL_MobileServer -> WebContent -> WEB-INF -> gson, mysql-connect 둘다 Add && Apply<br>
-       (5) GDDL_MobileServer 우클릭 -> Properties -> WebProjectSetting -> Context root : / 입력 -> Apply<br>
-       (6) GDDL_MobileServer 우클릭 -> Properties -> Server -> Tomcat9.0 -> Apply<br>
-       (7) Eclipse -> Project -> Properties -> Targeted Runtime -> New -> Tomcat9.0 -> Finish -> Apply<br>
+       (1) Eclipse Java EE 다운로드 https://www.eclipse.org/downloads/packages/ 에서 Eclipse IDE for Enterprise Java and Web Developers 설치
+       (2) Eclipse -> New -> Open File -> GDDL_MobileServer
+       (3) Tomcat 다운로드 https://shinysblog.tistory.com/5
+       (4) GDDL_MobileServer 우클릭 -> Properties -> Java Build Path -> Libaries -> gson과 mysql-connect가 없을때만 Add JARs.. -> GDDL_MobileServer -> WebContent -> WEB-INF -> gson, mysql-connect 둘다 Add && Apply
+       (5) GDDL_MobileServer 우클릭 -> Properties -> WebProjectSetting -> Context root : / 입력 -> Apply
+       (6) GDDL_MobileServer 우클릭 -> Properties -> Server -> Tomcat9.0 -> Apply
+       (7) Eclipse -> Project -> Properties -> Targeted Runtime -> New -> Tomcat9.0 -> Finish -> Apply
 
 2. Mysql 설치환경 구축 
 
