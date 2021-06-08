@@ -190,6 +190,42 @@ ___
 |Splash.java|앱 실행시 Splash Animation|splash.xml|
 |User_Module.java|유저관련 데이터들의 클래스화|x|
 
+Server
+|클래스|기능|
+|------|---|
+|Board_Module.java|게시물 관련 데이터 클래스화|
+|Custom_Module.java|고객센터 문의 관련 데이터 클래스화|
+|Chat_Module.java|채팅 메세지 데이터 클래스화|
+|Server_Module.java|소켓 프로그래밍(채팅) 데이터 클래스화|
+|Notify_Module.java|공지사항 게시물 관련 데이터 클래스화|
+|BoardDAO.java|게시물 데이터베이스에 접근 클래스
+|ChatDAO.java|채팅 기록 데이터베이스 접근 클래스|
+|ChatListDAO.java|채팅 목록 데이터베이스 접근 클래스|
+|CustomCareDAO.java|고객센터 문의글 데이터베이스 접근 클래스|
+|NotifyDAO.java|공지사항 데이터베이스 접근 클래스|
+|userDAO|로그인, 회원가입 등 유저 정보 데이터베이스 접근 클래스|
+
+Servlet
+|Servlet|Request|Response|DBUpdate|
+|------|---|---|---|
+|CallChattingRoomDateServelt.java|서비스 제공자/이용자 ID |채팅 기록|x|
+|ChangePWServlet.java|유저ID, 변경할PW|x|새로운PW DB저장||
+|CustomReportServlet.java|고객센터 신고 데이터|x|신고글 DB저장|
+|EditProgressServlet.java|주문ID,접수ID|x|주문의 진행상태 변경|
+|InsertChattingRoomServlet.java|주문ID,접수ID|x|채팅목록DB 유저 추가|
+|IsThereIDServlet.java|입력ID|ID중복여부|x|
+|LoadOnBoardServlet.java|요청 parameter|모든 주문게시글 데이터|x|
+|LoadOwnOrdersServlet.java|유저ID|유저의 주문목록 데이터|x|
+|LoginConfirmServlet.java|유저ID, 유저PW|ID,PW 일치여부|x|
+|NotifyReceiverServlet.java|공지사항 데이터|x|공지사항 DB저장|
+|NotifySenderServlet.java|요청 parameter|공지사항 데이터|x|
+|OrderCancelServlet.java|주문고유번호|x|지정된 주문목록DB에서 삭제|
+|OrderCompltedServlet.java|주문고유번호|x|주문상태완료로 변경|
+|OrdererErranderIDServlet.java|유저ID|채팅상대ID|x|
+|PostOnBoardServlet.java|주문게시글 데이터|x|주문목록DB에 주문추가|
+|RegisterUserServlet.java|회원가입양식 데이터|x|유저DB에 회원정보추가|
+|ShowUserInfoServlet.java|유저ID|유저의 회원정보|x|
+|SignatureUtilServlet.java|입력 PW|x|회원정보 입력 전 비밀번호 암호화|
 ___
 
 ## 8. 개발 과정
