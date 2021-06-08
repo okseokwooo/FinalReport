@@ -74,7 +74,7 @@ ___
 ## 4. 파일 다운로드 유의점
 
 아래 폴더에서 
-    GDDL_MoblieServer, Admin_Notify.zip, GDDL DB File.sql을 따로 빼서 
+    GDDL_MoblieServer, Admin_Notify.zip, GDDL DB File.sql을 따로 빼서<br>
     ![folder](https://user-images.githubusercontent.com/29851990/121128207-fefa4a00-c865-11eb-8f72-8ab9de4a1f43.PNG)
 
 
