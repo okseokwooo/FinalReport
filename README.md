@@ -115,7 +115,7 @@ public class FinalDB {
        GDDL_MobileServer 패키지 우클릭 -> Run As -> Run on Server
 5. 구글맵 API 활성화
 
-       https://console.cloud.google.com/apis/credentials?project=handy-amplifier-311401
+      https://console.cloud.google.com/apis/credentials?project=handy-amplifier-311401
        
        위 링크로 들어가 자신의 API Key 를 추가 pakage name = com.example.gajdadeulim
 
