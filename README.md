@@ -193,85 +193,31 @@ ___
 
 ## 8. 개발 과정
 
-     Week5.DB - 초기 데이터베이스 스키마 설계,
-     서버/안스 회원가입 및 로그인 환경 구축 ,
-           - 구글맵활용 GPS로 현위치 찾기 - 김준혁,옥석우,차형석
-  ### 주요코드
-  구글맵 활용 GPS 현위치 찾기
-  
-```java
-            public String getCurrentAddress(LatLng latlng) {
-        //지오코더... GPS를 주소로 변환
-        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-        List<Address> addresses;
-        try {
-            addresses = geocoder.getFromLocation(
-                    latlng.latitude,
-                    latlng.longitude,
-                    1);
-        } catch (IOException ioException) {
-            //네트워크 문제
-            Toast.makeText(this, "지오코더 서비스 사용불가", Toast.LENGTH_LONG).show();
-            return "지오코더 서비스 사용불가";
-        } catch (IllegalArgumentException illegalArgumentException) {
-            Toast.makeText(this, "잘못된 GPS 좌표", Toast.LENGTH_LONG).show();
-            return "잘못된 GPS 좌표";
-        }
-
-        if (addresses == null || addresses.size() == 0) {
-            Toast.makeText(this, "주소 미발견", Toast.LENGTH_LONG).show();
-            return "주소 미발견";
-        } else {
-            Address address = addresses.get(0);
-            return address.getAddressLine(0).toString();
-        }
-    }
-    LocationCallback locationCallback = new LocationCallback() {
-        @Override
-        public void onLocationResult(LocationResult locationResult) {
-            super.onLocationResult(locationResult);
-            List<Location> locationList = locationResult.getLocations();
-            if (locationList.size() > 0) {
-                location = locationList.get(locationList.size() - 1);
-                //location = locationList.get(0);
-                currentPosition
-                        = new LatLng(location.getLatitude(), location.getLongitude());
-                String markerTitle = getCurrentAddress(currentPosition);
-                String markerSnippet = "위도:" + String.valueOf(location.getLatitude())
-                        + " 경도:" + String.valueOf(location.getLongitude());
-                Log.d(TAG, "onLocationResult : " + markerSnippet);
-
-                //현재 위치에 마커 생성하고 이동
-                setCurrentLocation(location, markerTitle, markerSnippet);
-                mCurrentLocatiion = location;
-            }
-        }
-    }
-```
-           
-           ### 데이터베이스
-           
-     Week6.서버 - 게시글 관련 서블릿 ,
-           -  게시글 관련된 main adapter 구현-차형석, 게시글 등록 -마건우, 
+     Week5.DB - 초기 데이터베이스 스키마 설계 - 마건우,
+           서버 - 회원가입 및 로그인 환경 구축 - 김형진,
+           안드로이드 - 회원가입 및 로그인 액티비티 구현 ,구글맵활용 GPS로 현위치 찾기 - 김준혁,옥석우,차형석
+     Week6.서버 - 게시글 관련 서블릿 - 김형진,
+           안드로이드 -  게시글 관련된 main adapter 구현-차형석, 게시글 등록 -마건우, 
            메인 화면 구축(로그아웃, 회원정보 변경)-김준혁, 게시글 새로고침 기능 - 옥석우 
            
-     Week7.서버 - 주문 수락 및 취소,불러오기 서블릿  ,
-           - 게시글 펼쳐보기/수락 기능구현 - 김준혁, 주문 취소 구현 - 옥석우, 주문목록 구현- 마건우, 프래그먼트 구현 - 차형석
+     Week7.서버 - 주문 수락 및 취소,불러오기 서블릿 - 김형진,
+           안드로이드 - 게시글 펼쳐보기/수락 기능구현 - 김준혁, 주문 취소 구현 - 옥석우, 주문목록 구현- 마건우, 프래그먼트 구현 - 차형석
            
-     Week8.서버 - 고객센터 신고접수, 공지사항 불러오기/등록하기 , 
-           - 고객센터 신고접수 기능 구현 - 김준혁, 가이드라인 기능 구현 - 옥석우, 게시글 세부 분류 - 마건우, 공지사항 추가 및 게시 - 차형석
+     Week8.서버 - 고객센터 신고접수, 공지사항 불러오기/등록하기 - 김형진, 
+           안드로이드 - 고객센터 신고접수 기능 구현 - 김준혁, 가이드라인 기능 구현 - 옥석우, 게시글 세부 분류 - 마건우, 공지사항 추가 및 게시 - 차형석
            
-     Week9.서버 - 채팅관련 서블릿, 안스 - 스플래쉬스크린 - 김준혁,
-           - 채팅 액티비티, 채팅프래그먼트(채팅목록) - 옥석우,차형석 , 주문목록 변경, 메인게시판 정리
+     Week9.서버 - 채팅관련 서블릿 - 김형진, 안스 - 스플래쉬스크린 - 김준혁,
+           안드로이드 - 채팅 액티비티, 채팅프래그먼트(채팅목록) - 옥석우,차형석 , 주문목록 변경, 메인게시판 정리
            
-     Week10.DB - 채팅기능에서 필요한 데이터 검토, 서버 - 비동기 서버 구현을 위한 학습 및 제작진행, 
-          안스 - 채팅방 레이아웃-김준혁 , 채팅 액티비티 - 마건우 ,안드로이드 서비스 구현- 차형석
+     Week10.DB - 채팅기능에서 필요한 데이터 검토 - 마건우, 서버 - 비동기 서버 구현을 위한 학습 및 제작진행 - 김형진,옥석우 , 
+           안드로이드 - 채팅방 레이아웃 - 김준혁 , 채팅 액티비티 - 마건우 ,안드로이드 서비스 구현- 차형석
           
-     Week11.서버 - Servlet과는 독립적으로 동작하는 서버소켓 및 쓰레드 비동기 구현 중
-          안스 - 서비스 안에 쓰레드 구현 - 차형석, 디자인 - 김/마/옥 
+     Week11.서버 - Servlet과는 독립적으로 동작하는 서버소켓 및 쓰레드 비동기 구현 중 - 김형진
+           안드로이드 - 서비스 안에 쓰레드 구현 - 차형석, 디자인 - 김준혁, 마건우, 옥석우 
           
-     Week12.서버 - 비동기 채팅서버 구현 및 비동기 서버와 기존 단방향 통신 서버 병합 작업
-          안스 - 채팅방 어댑터 구현-마건우, 공지사항 툴바 및 내용 디자인-옥석우,고객센터 디자인- 김준혁, 글쓰기 디자인 및 안드로이드 서비스내 소켓통신 관련 동작 재정의-차형석
+     Week12.서버 - 비동기 채팅서버 구현 및 비동기 서버와 기존 단방향 통신 서버 병합 작업 - 김형진
+           안드로이드 - 채팅방 어댑터 구현 - 마건우, 공지사항 툴바 및 내용 디자인 - 옥석우,
+           고객센터 디자인- 김준혁, 글쓰기 디자인 및 안드로이드 서비스내 소켓통신 관련 동작 재정의 - 차형석
           
      Week13. 
          김형진
