@@ -193,8 +193,39 @@ ___
 
 ## 8. 개발 과정
 
-     Week5.DB - 초기 데이터베이스 스키마 설계, 서버/안스 회원가입 및 로그인 환경 구축 ,
+     Week5.DB - 초기 데이터베이스 스키마 설계,
+     서버/안스 회원가입 및 로그인 환경 구축 ,
            - 구글맵활용 GPS로 현위치 찾기 - 김준혁,옥석우,차형석
+           ## 주요코드
+           ```java
+            public String getCurrentAddress(LatLng latlng) {
+        //지오코더... GPS를 주소로 변환
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        List<Address> addresses;
+        try {
+            addresses = geocoder.getFromLocation(
+                    latlng.latitude,
+                    latlng.longitude,
+                    1);
+        } catch (IOException ioException) {
+            //네트워크 문제
+            Toast.makeText(this, "지오코더 서비스 사용불가", Toast.LENGTH_LONG).show();
+            return "지오코더 서비스 사용불가";
+        } catch (IllegalArgumentException illegalArgumentException) {
+            Toast.makeText(this, "잘못된 GPS 좌표", Toast.LENGTH_LONG).show();
+            return "잘못된 GPS 좌표";
+        }
+
+        if (addresses == null || addresses.size() == 0) {
+            Toast.makeText(this, "주소 미발견", Toast.LENGTH_LONG).show();
+            return "주소 미발견";
+        } else {
+            Address address = addresses.get(0);
+            return address.getAddressLine(0).toString();
+        }
+    }
+    ```
+           
            ### 데이터베이스
            
      Week6.서버 - 게시글 관련 서블릿 ,
