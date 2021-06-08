@@ -42,7 +42,7 @@ ___
 
 ___
 
-## 2. 갖다드림 어플 소개
+## 2. "갖다드림" 앱 소개
 
  -  상명대학교 학생들을 위한 심부름 서비스 Appliction이다.
  -  캠퍼스 내 시설 또는 캠퍼스 근방 학생들에게 심부름 서비스를 제공한다.
@@ -51,7 +51,7 @@ ___
 
 ___
 
-## 3. 유사 앱 분석
+## 3. 유사 앱 분석 및 차이점
 
 ![김집사](https://user-images.githubusercontent.com/79950095/120915782-abaabf00-c6e0-11eb-9247-d39d6b39a116.JPG)
 
@@ -71,7 +71,7 @@ ___
 
 ___
 
-## 4. 어플을 제작하기 위해 필요한 도구
+## 4. 앱 제작 툴 소개
 
  -  안드로이드 스튜디오 (android studio 4.2.1) https://developer.android.com/studio?gclid=EAIaIQobChMI9InWvMeC8QIVx1VgCh3c0gDYEAAYASAAEgI3PPD_BwE&gclsrc=aw.ds
  -  데이터베이스 (MySQL Workbench 8.0.25) https://dev.mysql.com/downloads/mysql/
@@ -170,7 +170,7 @@ ___
 
 ___
 
-## 8. 어플리케이션 한계점
+## 8. "갖다드림" 어플리케이션 한계점
 
 - 코로나19 바이러스로 인한 비대면수업 = 학교주변 인원 감소
 - 방학기간 학교주변 인원 감소에 따른 사용자 감소
