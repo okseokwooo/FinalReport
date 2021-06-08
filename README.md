@@ -197,7 +197,7 @@ ___
      서버/안스 회원가입 및 로그인 환경 구축 ,
            - 구글맵활용 GPS로 현위치 찾기 - 김준혁,옥석우,차형석
            ## 주요코드
-           ```java
+```java
             public String getCurrentAddress(LatLng latlng) {
         //지오코더... GPS를 주소로 변환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -224,7 +224,7 @@ ___
             return address.getAddressLine(0).toString();
         }
     }
-    ```
+```
            
            ### 데이터베이스
            
